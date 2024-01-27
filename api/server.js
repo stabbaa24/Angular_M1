@@ -52,9 +52,9 @@ mongoose.connect(uri, options)
   .then(() => {
     console.log("Connecté à la base MongoDB assignments dans le cloud !");
     console.log("at URI = " + uri);
-    console.log("\n\nvérifiez with http://localhost:8010/api/assignments que cela fonctionne pour les assignments");
-    console.log("\n\nvérifiez with http://localhost:8010/api/users que cela fonctionne pour les users");
-    console.log("\n\nvérifiez with http://localhost:8010/api/users/login que cela fonctionne pour le login (avec Postman par exemple)");
+    console.log("\n\nvérifiez with http://localhost:10000/api/assignments que cela fonctionne pour les assignments");
+    console.log("\n\nvérifiez with http://localhost:10000/api/users que cela fonctionne pour les users");
+    console.log("\n\nvérifiez with http://localhost:10000/api/users/login que cela fonctionne pour le login (avec Postman par exemple)");
   },
     err => {
       console.log('Erreur de connexion: ', err);
@@ -71,7 +71,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-let port = process.env.PORT || 8010;
+let port = process.env.PORT || 10000;
 
 // les routes
 const prefix = '/api';
