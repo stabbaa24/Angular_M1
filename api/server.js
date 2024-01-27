@@ -155,7 +155,6 @@ app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
     res.sendFile(path.join(__dirname, "./dist/assignment-app/index.html")),
   );
 
-  
 setupCORS(app, tableauCors);
 
 // On démarre le serveur
