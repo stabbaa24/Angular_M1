@@ -1,0 +1,22 @@
+* {
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.example-spacer {
+flex: 1 1 auto;
+}
+
+.mat-drawer-container {
+height: calc(205vh - 115vh);
+}
+
+.example-sidenav-content {
+display: flex;
+height: 100%;
+align-items: center;
+justify-content: center;
+}
+
+.example-sidenav {
+padding: 20px;
+}

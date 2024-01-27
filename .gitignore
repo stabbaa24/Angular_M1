@@ -1,0 +1,17 @@
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+StudySync/.angular/*
+
+# Ignore all node_modules folders
+StudySync/node_modules
+api/node_modules
+
+# Ignore package-lock.json
+StudySync/package-lock.json
+api/package-lock.json

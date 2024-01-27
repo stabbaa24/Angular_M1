@@ -1,0 +1,24 @@
+<main class="container">
+  <div class="ajouterBtnDiv">
+    <a routerLink="/addSubject">
+      <button mat-flat-button color="accent" class="ajouterBtn">
+        Ajouter Matière
+      </button>
+    </a>
+  </div>
+  
+  <div class="cards-container">
+    <div *ngFor="let subject of subjects" class="example-card">
+      <div class="card-layout">
+        <img [src]="subject.image_matiere" alt="Image de la matière" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title">{{ subject.matiere }}</h3>
+          <div class="professor-details">
+            <img [src]="subject.professeurDetails?.image" alt="Image du professeur" class="professor-image">
+            <h4 class="card-subtitle">{{ subject.professeurDetails?.nom }} {{ subject.professeurDetails?.prenom }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
