@@ -43,6 +43,7 @@ const setupCORS = (app, allowedOrigins) => {
     origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     optionsSuccessStatus: 200,
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'x-access-token']
   };
   app.use(cors(corsOptions));
 };
@@ -60,16 +61,18 @@ mongoose.connect(uri, options)
       console.log('Erreur de connexion: ', err);
     });
 
-app.use(cors({
+/*app.use(cors({
   origin: 'http://localhost:4200', // ou '*' pour autoriser toutes les origines
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'x-access-token']
-}));
+}));*/
 
 // Pour les formulaires
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+setupCORS(app, tableauCors);
 
 let port = process.env.PORT || 10000;
 
@@ -155,7 +158,6 @@ app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
     res.sendFile(path.join(__dirname, "./dist/assignment-app/index.html")),
   );
 
-setupCORS(app, tableauCors);
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
