@@ -11,7 +11,7 @@ export class StudentsService {
     constructor(private loggingService: LoggingService,
         private http: HttpClient) { }
 
-    url = "http://localhost:8010/api/students";
+    url = "/api/students";
 
     getStudents(): Observable<any> {
         return this.http.get<any>(this.url);

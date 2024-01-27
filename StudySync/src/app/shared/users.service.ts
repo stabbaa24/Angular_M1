@@ -11,7 +11,7 @@ export class UsersService {
     constructor(private loggingService: LoggingService,
         private http: HttpClient) { }
 
-    url = "http://localhost:8010/api/users";
+    url = "/api/users";
 
     registerUser(users: { login: string, password: string, role: string }): Observable<any> {
         return this.http.post<any>(this.url + '/register', users);

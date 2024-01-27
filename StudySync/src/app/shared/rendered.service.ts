@@ -11,7 +11,7 @@ export class RenderedService {
     constructor(private loggingService: LoggingService,
         private http: HttpClient) { }
 
-    url = "http://localhost:8010/api/rendered";
+    url = "/api/rendered";
 
     getRendered(assignmentId: string, studentLogin: string): Observable<any> {
         return this.http.get<any>(`${this.url}/${assignmentId}/${studentLogin}`);

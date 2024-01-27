@@ -17,7 +17,7 @@ export class AssignmentsService {
   constructor(private loggingService: LoggingService,
     private http: HttpClient) { }
 
-  url = "http://localhost:8010/api/assignments";
+  url = "/api/assignments";
 
   getAssignments(): Observable<Assignment[]> {
     return this.http.get<Assignment[]>(this.url); // renvoie un Observable
