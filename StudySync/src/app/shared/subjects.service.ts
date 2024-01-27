@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from '../subjects/subject.model';
+import { environment } from 'environment';
 
 @Injectable({
     providedIn: 'root'
@@ -10,8 +11,8 @@ import { Subject } from '../subjects/subject.model';
 export class SubjectsService {
     constructor(private http: HttpClient) { }
 
-    url = "/api/subjects";
-
+    url = `${environment.apiURL}/subjects`;
+    
     getSubjects(): Observable<any> {
         return this.http.get<any>(this.url);
     }

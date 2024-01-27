@@ -4,6 +4,7 @@ import { Assignment } from '../assignments/assignment.model';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
 import { bdInitialAssignments } from './data';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AssignmentsService {
   constructor(private loggingService: LoggingService,
     private http: HttpClient) { }
 
-  url = "/api/assignments";
+  url = `${environment.apiURL}/assignments`;
 
   getAssignments(): Observable<Assignment[]> {
     return this.http.get<Assignment[]>(this.url); // renvoie un Observable

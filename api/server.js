@@ -32,6 +32,7 @@ const options = {
 const tableauCors = [
   'http://localhost:5000',
   'http://localhost:4200',
+  'http://localhost:8010',
   'http://localhost:80',
   'http://localhost',
   'http://localhost:10000',
@@ -47,7 +48,6 @@ const setupCORS = (app, allowedOrigins) => {
   };
   app.use(cors(corsOptions));
 };
-
 
 mongoose.connect(uri, options)
   .then(() => {
@@ -152,12 +152,13 @@ app.route(prefix + '/rendered')
 
 
 //config pour join api et angular
+/*
 app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
   // Configures the Express application to serve the frontend
   app.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, "./dist/assignment-app/index.html")),
   );
-
+*/
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");

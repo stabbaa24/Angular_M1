@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'environment';
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +12,8 @@ export class TeachersService {
     constructor(private loggingService: LoggingService,
         private http: HttpClient) { }
 
-    url = "/api/teachers";
-
+    url = `${environment.apiURL}/teachers`;
+    
     getTeachers(): Observable<any> {
         return this.http.get<any>(this.url);
     }

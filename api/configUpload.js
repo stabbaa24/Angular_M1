@@ -8,7 +8,7 @@ const path = require('path');
 // Définir le chemin de stockage et le nom du fichier
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, 'C:/Users/wersl/OneDrive/Documents/GitHub/StudySync/src/assets/uploads'); // Remplacer par le chemin de votre dossier de stockage d'images
+        cb(null, 'C:/Users/wersl/OneDrive/Documents/GitHub/StudySync/src/assets/uploads');
     },
     filename: function(req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
