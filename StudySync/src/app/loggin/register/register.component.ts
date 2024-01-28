@@ -144,12 +144,7 @@ export class RegisterComponent {
   }
 
   //https://blog.angular-university.io/angular-file-upload/
-  onFileSelected(event: any) {
-    this.file = event.target.files[0];
-    if (this.file) {
-      this.getImage?.setValue(this.file.name);
-    }
-  }
+ 
 
   get getPassword() { return this.registerForm.get('password'); }
   get getConfirmPassword() { return this.registerForm.get('confirmPassword'); }

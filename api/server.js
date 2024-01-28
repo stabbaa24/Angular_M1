@@ -2,7 +2,7 @@
 let fileURLToPath = require('url').fileURLToPath;
 let path = require('path');
 let dirname = require('path').dirname;
-
+const fs = require('fs');
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
@@ -85,8 +85,12 @@ app.get('/api/images/:type', (req, res) => {
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
-        console.error(err);
+        console.error(err); // Log de l'erreur pour le débogage
         return res.status(500).send({ error: "Error scanning files", details: err.message });
+    }
+
+    if (!files.length) {
+        return res.status(404).send({ message: "No files found" });
     }
       else {
           let fileInfos = files.map(file => {
