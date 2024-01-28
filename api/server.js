@@ -79,79 +79,54 @@ let port = process.env.PORT || 10000;
 // les routes
 const prefix = '/api';
 
-app.get('/api/images/:type', (req, res) => {
-  const type = req.params.type;
-  const directoryPath = path.join(__dirname, `assets/image/${type}`);
-
-  fs.readdir(directoryPath, function (err, files) {
-    if (err) {
-        console.error(err); // Log de l'erreur pour le débogage
-        return res.status(500).send({ error: "Error scanning files", details: err.message });
-    }
-
-    if (!files.length) {
-        return res.status(404).send({ message: "No files found" });
-    }
-      else {
-          let fileInfos = files.map(file => {
-              return {
-                  name: file,
-                  url: `/assets/image/${type}/${file}`
-              };
-          });
-          res.status(200).send(fileInfos);
-      }
-  });
-});
-
 app.use('/assets', express.static('assets'));
 
 // Routes Assignments
 app.route(prefix + '/assignments')
-  .get(/*verifyToken,*/ assignment.getAssignments); // pour récupérer tous les assignments
+  .get(verifyToken, assignment.getAssignments); // pour récupérer tous les assignments
 
 app.route(prefix + '/assignments/:id')
-  .get(/*verifyToken,*/ assignment.getAssignment)
-  .delete(/*verifyToken,*/ assignment.deleteAssignment); // pour supprimer un assignment
+  .get(verifyToken, assignment.getAssignment)
+  .delete(verifyToken, assignment.deleteAssignment); // pour supprimer un assignment
 
 app.route(prefix + '/assignments')
-  .post(/*verifyToken,*/ assignment.postAssignment)
-  .put(/*verifyToken,*/ assignment.updateAssignment); // pour modifier un assignment
+  .post(verifyToken, assignment.postAssignment)
+  .put(verifyToken, assignment.updateAssignment); // pour modifier un assignment
 
 // Routes Users
 app.route(prefix + '/users')
-  .get(/*verifyToken,*/ user.getUsers) // pour récupérer tous les users
+  .get(verifyToken, user.getUsers) // pour récupérer tous les users
 
 app.route(prefix + '/users/login')
   .post(user.logInUser) // pour se connecter
 
 app.route(prefix + '/users/role')
-  .post(/*verifyToken,*/ user.getRole) // pour récupérer le rôle de l'utilisateur
+  .post(verifyToken,user.getRole) // pour récupérer le rôle de l'utilisateur
 
 app.route(prefix + '/users/register')
   .post(user.registerUser) // pour s'incrire
 
 // Routes Students
 app.route(prefix + '/students')
-  .get(/*verifyToken,*/ student.getStudents)
+  .get(verifyToken, student.getStudents)
   .post(student.addStudent);
 
 // Routes Teachers
 app.route(prefix + '/teachers')
-  .get(/*verifyToken,*/ teacher.getTeachers)
+  .get(verifyToken, teacher.getTeachers)
   .post(teacher.addTeacher);
 
 app.route(prefix + '/teachers/login/:login')
-  .get(/*verifyToken,*/ teacher.getTeacherByLogin);
+  .get(verifyToken, teacher.getTeacherByLogin);
 
 // Routes Subjects
 app.route(prefix + '/subjects')
-  .get(/*verifyToken, */subject.getSubjects) //après test remettre verifytoken
+  .get(verifyToken, subject.getSubjects) //après test remettre verifytoken
   .post(subject.addSubject);
 
   // avec ID
 app.route(prefix + '/subjects/:id')
-  .get(/*verifyToken, */subject.getSubject)
+  .get(verifyToken, subject.getSubject)
   //.delete(verifyToken, subject.deleteSubject);
 
 // Routes Rendered
@@ -166,12 +141,13 @@ app.route(prefix + '/rendered')
 
 
 //config pour join api et angular
-/*app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
+app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
   // Configures the Express application to serve the frontend
   app.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, "./dist/assignment-app/index.html")),
   );
-*/
+
+
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);

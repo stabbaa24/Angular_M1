@@ -57,14 +57,6 @@ export class AddSubjectComponent {
     this.dialogRef.close();
   }
 
-  //https://blog.angular-university.io/angular-file-upload/
-/*  onFileSelected(event: any) {
-    this.file = event.target.files[0];
-    if (this.file) {
-      this.subjectForm.get('image')?.setValue(this.file.name);
-    }
-  }*/
-
   get getMatiere() { return this.subjectForm.get('matiere'); }
   get getProfesseur() { return this.subjectForm.get('professeur'); }
   get getImage() { return this.subjectForm.get('image'); }

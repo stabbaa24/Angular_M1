@@ -45,7 +45,6 @@
       </ng-container>
     </ng-container>
 
-    <!-- Colonne 'Rendu' spécifique -->
     <ng-container matColumnDef="rendu">
       <th mat-header-cell *matHeaderCellDef>Rendu</th>
       <td mat-cell *matCellDef="let assignment">
@@ -76,7 +75,6 @@
               </ng-container>
               <ng-template #notRendered>
                 <div *ngIf="!isAssignmentRendered(assignment._id)">
-                  <p>Assignment n° : {{ assignment._id }}</p>
                   <p>Devoir non rendu.</p>
                   <mat-checkbox (click)="onChangeAssignmentRendu(assignment, $event)">
                     Marquer comme rendu

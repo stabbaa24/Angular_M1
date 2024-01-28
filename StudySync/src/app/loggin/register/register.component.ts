@@ -49,8 +49,6 @@ export class RegisterComponent {
     });
   }
 
-
-  // Dans votre méthode onRegister, appelez simplement addUser
   onRegister() {
     if (!this.registerForm.valid) {
       this.isRegisterFailed = true;

@@ -25,7 +25,7 @@ export class AppComponent {
 
   onLogOut() {
     this.authService.logOut();
-    this.router.navigate(["/home"]);
+    this.router.navigate(["/loggin"]);
   }
 
   isAdmin(): boolean {

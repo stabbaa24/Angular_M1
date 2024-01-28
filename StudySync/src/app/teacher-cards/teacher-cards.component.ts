@@ -24,7 +24,7 @@ export class TeacherCardsComponent {
     this.subjectsService.getSubjects().subscribe(
       subjects => {
         this.subjects = subjects.docs;
-        this.filteredSubjects = [...this.subjects]; // Copie initiale
+        this.filteredSubjects = [...this.subjects]; 
       },
       error => console.error('Erreur recup matières', error)
     );

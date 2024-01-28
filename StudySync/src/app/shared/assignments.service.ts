@@ -46,21 +46,6 @@ export class AssignmentsService {
     return this.http.delete(deleteURI);
   }
 
- /* peuplerBD() {
-    bdInitialAssignments.forEach(a => {
-      let nouvelAssignment = new Assignment();
-      nouvelAssignment.nom = a.nom;
-      nouvelAssignment.id = a.id;
-      nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
-      //nouvelAssignment.rendu = a.rendu;
-
-      this.addAssignment(nouvelAssignment)
-        .subscribe(reponse => {
-          console.log(reponse.message);
-        })
-    })
-  }
-*/
 
 peuplerBD() {
   bdInitialAssignments.forEach(a => {
