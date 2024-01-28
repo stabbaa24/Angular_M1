@@ -17,7 +17,6 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
     firstname: new FormControl('', Validators.required),
-    image: new FormControl('', Validators.required),
     promo: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required)
   });
