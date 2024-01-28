@@ -139,14 +139,14 @@ app.route(prefix + '/rendered/:assignmentId/')
 app.route(prefix + '/rendered')
   .post(/*verifyToken,*/ render.postRender);
 
-/*
+
 //config pour join api et angular
 app.use(express.static(path.join(__dirname, "./dist/assignment-app")));
   // Configures the Express application to serve the frontend
   app.get("/", (req, res) =>
     res.sendFile(path.join(__dirname, "./dist/assignment-app/index.html")),
   );
-*/
+
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
