@@ -29,7 +29,7 @@ import { Render } from './render.model';
     ]),
   ]
 })
-// LA PAGINATION NE FONCTIONNE PLUS ET J AI PAS LE TEMPS DE LA REPARER
+
 export class AssignmentsComponent implements OnInit {
   titre = "Rendu des devoirs";
   formVisible = false;
@@ -50,7 +50,7 @@ export class AssignmentsComponent implements OnInit {
   selectedMatiere: string = '';
   selectedStatus: string = 'all';
   matiereIdMap: Record<string, string> = {}; //https://www.danywalls.com/how-to-use-record-type-in-typescript
-  nbStudent: Record<string, number> = {}; 
+  nbStudent: Record<string, number> = {}; // Clé pourrait être 'Promo-GroupeTD'
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -327,7 +327,7 @@ export class AssignmentsComponent implements OnInit {
     const endIndex = startIndex + this.limit;
     this.filteredAssignments = this.assignments.slice(startIndex, endIndex);
   }
-  
+
 
   onMatiereChange(event: Event): void {
     const select = event.target as HTMLSelectElement;
