@@ -6,9 +6,8 @@ export class Assignment {
     rendu!: number;
     auteur!: string | null; //car ref object id dans mongoDB
     matiere!: string; //same
-    groupe!: 'TD 1' | 'T2' | 'TD3';
+    groupe!: 'TD 1' | 'TD 2' | 'TD 3';
     promo!: 'L3' | 'M1' | 'M2';
-
     matiereDetails?: {
         _id?: string;
         matiere?: string;

@@ -59,7 +59,7 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.nom = this.nomDevoir;
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.rendu = 0;
-    newAssignment.groupe = this.groupe as "TD 1" | "T2" | "TD3";
+    newAssignment.groupe = this.groupe as "TD 1" | "TD 2" | "TD 3";
     newAssignment.promo = this.promo as "L3" | "M1" | "M2";
     newAssignment.auteur = this.auteur;
     console.log("Auteur:", newAssignment.auteur);
