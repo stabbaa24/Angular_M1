@@ -1,106 +1,123 @@
-/* Surcharge du calendrier dans le fichier CSS du composant avec encapsulation de la vue */
-:host ::ng-deep {
+.custom-calendar {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background-color: white;
+  color: #2682be;
+}
 
-    /* Style général pour le calendrier */
-    .cal-month-view {
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-  
-    /* Style pour les jours du calendrier */
-    .cal-day-cell {
-      height: auto;
-      padding: 12px;
-      border-right: 1px solid #e8e8e8;
-      border-bottom: 1px solid #e8e8e8;
-      overflow: hidden;
-    }
-  
-    /* Style pour le jour sélectionné ou aujourd'hui */
-    .cal-day-cell.cal-day-selected,
-    .cal-day-cell.cal-today {
-      background-color: #f0f8ff;
-      color: #1e90ff;
-      border: none;
-    }
-  
-    /* Style pour les événements dans un jour */
-    .cal-event {
-      font-size: 0.85em;
-      margin-bottom: 4px;
-      padding: 6px;
-      border-radius: 4px;
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  
-    /* Couleur de fond pour les événements */
-    .cal-event,
-    .cal-event:hover {
-      background-color: #1e90ff;
-      color: white;
-    }
-  
-    /* Style pour les titres des jours de la semaine */
-    .cal-header {
-      background-color: #ffffff;
-      border-bottom: 1px solid #e8e8e8;
-      color: #333;
-    }
-  
-    /* Style pour le titre du calendrier (mois et année) */
-    .cal-header .mwl-calendar-header {
-      padding: 10px;
-      background-color: #f7f7f7;
-      border-bottom: none;
-      font-size: 1.2em;
-      color: #333;
-    }
-  
-    /* Style pour les boutons de navigation du calendrier */
-    .cal-header button {
-      margin: 0 10px;
-      background-color: transparent;
-      color: #1e90ff;
-      border: 1px solid #1e90ff;
-      border-radius: 4px;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-  
-    /* Hover effect for buttons */
-    .cal-header button:hover {
-      background-color: #1e90ff;
-      color: white;
-    }
-  
-    /* Style pour le bouton aujourd'hui */
-    .cal-today-button {
-      background-color: #1e90ff;
-      border-color: #1e90ff;
-      color: white;
-    }
-  
-    /* Style pour les jours fériés ou les événements spéciaux */
-    .cal-day-cell.cal-weekend {
-      background-color: #fff0f0;
-    }
-  
-    /* Style pour les événements qui durent toute la journée */
-    .cal-all-day-events {
-      min-height: 50px;
-      padding: 8px;
-    }
-  
-    /* Style pour les cellules sans événements */
-    .cal-day-cell.cal-in-month.cal-day-has-events {
-      background-color: #f9f9f9;
-    }
-  
-    /* Ajouter des styles supplémentaires si nécessaire... */
-  }
-  
+.custom-calendar mwl-calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.custom-calendar button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2682be;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.custom-calendar button:hover {
+  background-color: whitesmoke;
+  color: #2682be;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-calendar .cal-day-headers {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.custom-calendar .cal-day-header {
+  text-align: center;
+  color: #2682be;
+}
+
+.custom-calendar .cal-cell {
+  border-radius: 4px;
+  padding: 10px;
+  text-align: right;
+}
+
+.custom-calendar .cal-cell-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.custom-calendar .cal-cell-top span {
+  margin-right: 5px;
+}
+
+.custom-calendar .cal-day-cell {
+  height: 100px;
+  cursor: pointer;
+}
+
+.custom-calendar .cal-day-cell.cal-in-month {
+  background-color: #f9f9f9;
+}
+
+.custom-calendar .cal-day-cell.cal-today {
+  background-color: #2682be;
+  color: white;
+}
+
+.custom-calendar .cal-day-cell.cal-past {
+  background-color: #f0f0f0;
+}
+
+.custom-calendar .cal-day-cell.cal-out-month {
+  background-color: #e9e9e9;
+}
+
+.custom-calendar .cal-day-cell:hover {
+  background-color: #ddeeff;
+}
+
+.custom-calendar .cal-event {
+  margin-top: 5px;
+  padding: 3px;
+  background-color: #2682be;
+  color: white;
+  border-radius: 3px;
+}
+
+.custom-calendar .cal-event:hover {
+  background-color: #186599;
+}
+
+
+
+.ajouterBtnDiv {
+  display: flex;
+  justify-content: center; 
+  margin: 20px 0; 
+}
+
+.ajouterBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2682be;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 10px; 
+}
+
+.ajouterBtn:hover {
+  background-color: whitesmoke;
+  color: #2682be;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid #2682be;
+}

@@ -1,11 +1,10 @@
 <main class="container">
   <div class="ajouterBtnDiv">
-    <a routerLink="/addSubject">
-      <button mat-flat-button color="accent" class="ajouterBtn" (click)="openAddSubjectDialog()">
-        Ajouter Matière
-      </button>
-    </a>
+    <button mat-flat-button color="accent" class="ajouterBtn" (click)="openAddSubjectDialog()">
+      Ajouter Matière
+    </button>
   </div>
+  
   
   <div class="cards-container">
     <div *ngFor="let subject of subjects" class="example-card">

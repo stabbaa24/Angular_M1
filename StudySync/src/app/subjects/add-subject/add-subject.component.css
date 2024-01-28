@@ -1,0 +1,61 @@
+/* Style du mat-card pour le pop-up */
+mat-card {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+mat-card h2 {
+    color: #2682be;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style général pour les champs de formulaire et les labels */
+mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Style pour les erreurs de validation */
+mat-error {
+    color: #d32f2f;
+}
+
+/* Style des boutons dans la pop-up */
+.button {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.button button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Bouton primaire */
+.button button[mat-raised-button] {
+    background-color: #2682be;
+    color: white;
+    border: none;
+}
+
+/* Bouton pour réinitialiser */
+.button button[mat-button] {
+    background-color: transparent;
+    color: #2682be;
+    border: 1px solid #2682be;
+}
+
+/* Hover effect pour les boutons */
+.button button:hover {
+    background-color: whitesmoke;
+    color: #2682be;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    border-color: #2682be;
+}

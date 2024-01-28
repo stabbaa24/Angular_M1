@@ -23,11 +23,6 @@
         </mat-form-field>
       </p>
       
-  
-      <p>
-        <input type="file" name="image" (change)="onFileSelected($event)" />
-      </p>
-  
       <div class="button">
         <button mat-button type="button" (click)="subjectForm.reset()">Réinitialiser</button>
         <button mat-raised-button color="primary" type="submit" [disabled]="subjectForm.invalid">Ajouter Matière</button>

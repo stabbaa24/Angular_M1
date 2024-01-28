@@ -14,11 +14,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddSubjectComponent {
   subjectForm = new FormGroup({
     matiere: new FormControl('', Validators.required),
-    professeur: new FormControl('', Validators.required),
-    image: new FormControl('', Validators.required)
+    professeur: new FormControl('', Validators.required)
   });
 
-  file: File | null = null;
+ // file: File | null = null;
   teachers: any[] = [];
   imgFolder = 'assets/uploads/';
 
@@ -43,45 +42,28 @@ export class AddSubjectComponent {
       return;
     }
 
-    const addSubject = (imagePath: string | undefined) => {
-
-      const data = {
-        matiere: this.getMatiere?.value,
-        image_matiere: imagePath,
-        professeur: this.getProfesseur?.value
-      };
-
-      this.subjectService.addSubject(data).subscribe({
-        next: () => this.router.navigate(['/subjects']),
-        error: (error) => console.error('Matière add KO : ', error)
-      });
+    const data = {
+      matiere: this.getMatiere?.value,
+      image_matiere: '',
+      professeur: this.getProfesseur?.value
     };
 
-    if (this.file) {
-      const upload = this.subjectService.uploadImage(this.file);
-      upload.subscribe({
-        next: (getImg) => {
-          addSubject(this.imgFolder + getImg.fileName);
-        },
-        error: (error) => {
-          console.error('Erreur chargement img ', error);
-          addSubject('');
-        }
-      });
-    } else {
-      addSubject('');
-    }
+    this.subjectService.addSubject(data).subscribe({
+      next: () => this.router.navigate(['/subjects']),
+      error: (error) => console.error('Matière add KO : ', error)
+    });
+
 
     this.dialogRef.close();
   }
 
   //https://blog.angular-university.io/angular-file-upload/
-  onFileSelected(event: any) {
+/*  onFileSelected(event: any) {
     this.file = event.target.files[0];
     if (this.file) {
       this.subjectForm.get('image')?.setValue(this.file.name);
     }
-  }
+  }*/
 
   get getMatiere() { return this.subjectForm.get('matiere'); }
   get getProfesseur() { return this.subjectForm.get('professeur'); }

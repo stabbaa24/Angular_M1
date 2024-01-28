@@ -322,11 +322,11 @@ export class AssignmentsComponent implements OnInit {
     this.filterAssignments();
   }
 
-  applyPagination() {
+ /* applyPagination() {
     const startIndex = (this.page - 1) * this.limit;
     const endIndex = startIndex + this.limit;
     this.filteredAssignments = this.assignments.slice(startIndex, endIndex);
-  }
+  }*/
   
 
   onMatiereChange(event: Event): void {
@@ -334,7 +334,6 @@ export class AssignmentsComponent implements OnInit {
     this.selectedMatiere = select.value;
     console.log("Matière sélectionnée bitch:", this.selectedMatiere);
     this.filterAssignments();
-    this.applyPagination();
   }
 
   onStatusChange(event: Event): void {
@@ -393,6 +392,5 @@ export class AssignmentsComponent implements OnInit {
     this.page = event.pageIndex + 1;
     this.limit = event.pageSize;
     this.loadPageData();
-    this.applyPagination();
   }
 }

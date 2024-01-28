@@ -1,0 +1,36 @@
+.error-container {
+    text-align: center;
+    padding: 50px;
+    color: #333;
+  }
+  
+  .error-image {
+    width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  .error-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  
+  .retry-button {
+    padding: 10px 20px;
+    background-color: #2682be;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .retry-button:hover {
+    background-color: #1a5c8a;
+  }
+  

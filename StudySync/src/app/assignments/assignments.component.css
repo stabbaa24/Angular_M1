@@ -1,80 +1,107 @@
 .container {
-  padding: 1em;
+  width: 90%;
+  margin: 20px auto;
 }
 
-.slide-toggle {
-  margin: 0 1em;
+.filter-container, .slide-toggle, select {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-input, .slide-toggle input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  color: #2682be;
+}
+
+.mat-slide-toggle-content {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.slide-toggle input {
+  flex-grow: 1;
+  margin-left: 10px;
 }
 
 select {
-  background-color: white;
-  padding: 0.5em;
-  margin: 1em;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+ }
+
+select {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%232682be" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
 }
 
-.rendu {
-  color: green;
-}
-
-.nonRendu {
-  color: red;
-}
-
-.mat-divider {
-  border-top-color: red;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
+.ajouterBtnDiv {
+  position: absolute;
+  top: 20px; 
+  right: 20px; 
 }
 
 .ajouterBtn {
-  align-self: flex-end;
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 10px;
+  background-color: #2682be;
+  color: white; 
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-/* Style général pour le conteneur de pagination */
+.ajouterBtn:hover {
+  background-color: whitesmoke; 
+  color: black;
+  box-shadow: 3px 3px 3px black;
+  border : 1px solid #2682be;
+}
+
+button.mat-button {
+  margin: 5px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
-  /* Ajustez pour aligner à droite */
   align-items: center;
-  margin: 20px 0;
-  /* Ajustez selon l'espacement désiré */
+  margin: 40px 0;
 }
 
-/* Style pour les boutons de première/dernière page pour qu'ils ressemblent à ceux de mat-paginator */
 .mat-icon-button {
   border: none;
   background-color: transparent;
 }
 
-/* Style pour les icônes des boutons de première/dernière page */
 .mat-icon-button .mat-icon {
   color: rgba(0, 0, 0, 0.54);
 }
 
-/* Style pour les boutons désactivés */
 .mat-icon-button[disabled] {
   color: rgba(0, 0, 0, 0.26);
-}
-
-/* Style pour le mat-paginator */
-.mat-paginator {
-  background-color: transparent;
-  /* Enlève le fond par défaut si nécessaire */
-}
-
-/* Style pour la partie range actions du mat-paginator */
-.mat-paginator-range-actions {
+}.pagination {
+  display: flex;
   align-items: center;
-  /* Centre verticalement le texte et les contrôles */
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin: 20px 0; 
 }
 
-/* Style pour la partie range label du mat-paginator */
-.mat-paginator-range-label {
-  margin: 0 8px;
-  /* Ajustez l'espacement autour du texte de la plage */
+.mat-paginator {
+  margin: 0 15px; 
 }
 
 .assignment-details {
@@ -105,6 +132,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .example-element-detail {
+  justify-content: space-around;
+  align-items: center;
+  
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -113,7 +143,10 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .example-element-description {
-  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; 
 }
 
 .example-element-description-attribution {

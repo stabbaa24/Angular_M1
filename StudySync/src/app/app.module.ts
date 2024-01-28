@@ -51,6 +51,7 @@ import { TeacherCardsComponent } from './teacher-cards/teacher-cards.component';
 import { AssignmentCalendarComponent } from './assignments/assignment-calendar/assignment-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { AssignmentsRenderedComponent } from './assignments/assignments-rendered/assignments-rendered.component';
 
 const routes: Routes = [
   //{ path: 'load', component: LoadComponent },
@@ -70,7 +71,8 @@ const routes: Routes = [
   { path: 'addSubject', component: AddSubjectComponent },
   { path: 'students', component: StudentCardsComponent },
   { path: 'teachers', component: TeacherCardsComponent },
-  { path: 'calendar', component: AssignmentCalendarComponent }
+  { path: 'calendar', component: AssignmentCalendarComponent },
+  { path: 'assignmentsRendered', component: AssignmentsRenderedComponent }
 ];
 
 @NgModule({
@@ -89,7 +91,8 @@ const routes: Routes = [
     AddSubjectComponent,
     StudentCardsComponent,
     TeacherCardsComponent,
-    AssignmentCalendarComponent
+    AssignmentCalendarComponent,
+    AssignmentsRenderedComponent
   ],
   imports: [
     BrowserModule,
