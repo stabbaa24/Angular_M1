@@ -81,6 +81,28 @@ let port = process.env.PORT || 10000;
 // les routes
 const prefix = '/api';
 
+app.get('/api/images/:type', (req, res) => {
+  const type = req.params.type;
+  const directoryPath = path.join(__dirname, `assets/image/${type}`);
+
+  fs.readdir(directoryPath, function (err, files) {
+      if (err) {
+          res.status(500).send({ message: "Unable to scan files!" });
+      } 
+      else {
+          let fileInfos = files.map(file => {
+              return {
+                  name: file,
+                  url: `/assets/image/${type}/${file}`
+              };
+          });
+          res.status(200).send(fileInfos);
+      }
+  });
+});
+
+app.use('/assets', express.static('assets'));
+
 // Routes Assignments
 app.route(prefix + '/assignments')
   .get(/*verifyToken,*/ assignment.getAssignments); // pour récupérer tous les assignments

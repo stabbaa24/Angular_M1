@@ -49,9 +49,17 @@
            
 
         </p>
-        <p>
-            <input type="file" name="image" (change)="onFileSelected($event)" />
-        </p>
+      
+        <div *ngIf="images.length > 0">
+            <div *ngFor="let image of images">
+                <img [src]="image.url" 
+                     [alt]="image.name" 
+                     [class.selected]="image === selectedImage" 
+                     (click)="selectImage(image)">
+              </div>
+              
+          </div>
+          
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Mot de passe</mat-label>

@@ -1,4 +1,8 @@
-mat-card {
+.selected {
+    border: 2px solid blue;
+  }
+  
+  mat-card {
     max-width: 500px;
     margin: auto;
     padding: 2em;

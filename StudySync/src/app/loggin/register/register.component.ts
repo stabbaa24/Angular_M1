@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/shared/auth.service';
 import { Router } from '@angular/router';
 import { StudentsService } from 'src/app/shared/students.service';
 import { TeachersService } from 'src/app/shared/teachers.service';
+import { ImageService } from 'src/app/shared/image.service';
+import { Image } from '../image.model';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,21 +29,30 @@ export class RegisterComponent {
   file: File | null = null;
   files: File[] = [];
   imgFolder = 'assets/uploads/';
+  selectedType: string | null = null;
+  selectedImage: Image | null = null;
+
+  images: Image[] = [];
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private studentService: StudentsService,
-    private teacherService: TeachersService
+    private teacherService: TeachersService,
+    private imageService: ImageService
   ) { }
 
   ngOnInit(): void {
     console.log(this.registerForm);
     this.registerForm.get('role')?.valueChanges.subscribe((value) => {
       if (value === 'user') {
+        this.selectedType = 'student';
+      this.loadImages();
         this.getPromo?.setValidators([Validators.required]);
         this.getGroupe?.setValidators([Validators.required]);
       } else {
+        this.selectedType = 'teacher';
+        this.loadImages();
         this.getPromo?.clearValidators();
         this.getGroupe?.clearValidators();
       }
@@ -50,7 +61,21 @@ export class RegisterComponent {
     });
   }
 
+  selectImage(image: Image) {
+    this.selectedImage = image;
+  }
+
+  
+  loadImages() {
+    if (this.selectedType) {
+      this.imageService.getImages(this.selectedType).subscribe((data: Image[]) => {
+        this.images = data;
+      });
+    }
+  }
+
   onRegister() {
+    console.log("selectedType : " + this.selectedType);
     if (!this.registerForm.valid) {
       this.isRegisterFailed = true;
       this.getErrorRegister = 'Formulaire non valide.';
