@@ -50,7 +50,7 @@ export class AssignmentsComponent implements OnInit {
   selectedMatiere: string = '';
   selectedStatus: string = 'all';
   matiereIdMap: Record<string, string> = {}; //https://www.danywalls.com/how-to-use-record-type-in-typescript
-  nbStudent: Record<string, number> = {}; // Clé pourrait être 'Promo-GroupeTD'
+  nbStudent: Record<string, number> = {};
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
