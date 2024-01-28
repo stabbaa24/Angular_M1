@@ -7,6 +7,10 @@ Ce projet a pour but de présenter une application web avec deux interfaces.
 
 Cela va permettre aux étudiants de voir les devoirs qu'ils ont à faire et à rendre mais aussi aux professeurs de créer leurs devoirs à rendre.
 
+## Lien d'accès à l'application
+
+https://studysync-b7j1.onrender.com
+
 ## Contributeur
 
 * SAVE Pierre
@@ -102,3 +106,25 @@ Si j'avais eu le temps, j'aurai voulu implémenter :
 * Page de statistiques / KPI
 
 # Sitographie
+
+Pour effectuer le travail, beaucoup de site web ont été utilisé. Dans le code vous les retrouverez en commentaire et voici un récapitulatif (en espérant n'avoir rien oublié) :
+
+
+* [https://mongoosejs.com/docs/schematypes.html](https://mongoosejs.com/docs/schematypes.html "https://mongoosejs.com/docs/schematypes.html")
+* [https://mongoosejs.com/docs/schematypes.html](https://mongoosejs.com/docs/schematypes.html "https://mongoosejs.com/docs/schematypes.html")
+* [https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination](https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination "https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination")
+* [https://mongoosejs.com/docs/populate.html](https://mongoosejs.com/docs/populate.html "https://mongoosejs.com/docs/populate.html")
+* [https://mongoosejs.com/docs/populate.html](https://mongoosejs.com/docs/populate.html "https://mongoosejs.com/docs/populate.html")
+* [https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination](https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination "https://stackoverflow.com/questions/48114129/populate-with-mongoose-pagination")
+* [https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/ "https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/")
+* [https://geekflare.com/lookup-in-mongodb/](https://geekflare.com/lookup-in-mongodb/ "https://geekflare.com/lookup-in-mongodb/")
+* [https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/](https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/ "https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/")
+* [https://mattlewis-github.com/angular-calendar/#/kitchen-sink](https://mattlewis-github.com/angular-calendar/#/kitchen-sink "https://mattlewis-github.com/angular-calendar/#/kitchen-sink")
+* [https://www.npmjs.com/package/angular-calendar](https://www.npmjs.com/package/angular-calendar "https://www.npmjs.com/package/angular-calendar")
+* [https://www.danywalls.com/how-to-use-record-type-in-typescript](https://www.danywalls.com/how-to-use-record-type-in-typescript "https://www.danywalls.com/how-to-use-record-type-in-typescript")
+* [https://angular.io/guide/http-interceptor-use-cases](https://angular.io/guide/http-interceptor-use-cases "https://angular.io/guide/http-interceptor-use-cases")* [https://docs.angular.lat/api/common/http/HttpInterceptor](https://docs.angular.lat/api/common/http/HttpInterceptor "https://docs.angular.lat/api/common/http/HttpInterceptor")
+* [https://angular.io/guide/http-interceptor-use-cases](https://angular.io/guide/http-interceptor-use-cases "https://angular.io/guide/http-interceptor-use-cases")
+* [https://rxjs.dev/api/index/function/switchMap](https://rxjs.dev/api/index/function/switchMap "https://rxjs.dev/api/index/function/switchMap")
+* [https://rxjs.dev/api/index/function/tap](https://rxjs.dev/api/index/function/tap "https://rxjs.dev/api/index/function/tap")
+* [https://developer.mozilla.org/en-US/docs/Web/API/FormData/append](https://developer.mozilla.org/en-US/docs/Web/API/FormData/append "https://developer.mozilla.org/en-US/docs/Web/API/FormData/append")
+* [https://v10.material.angular.io/components/card/examples](https://v10.material.angular.io/components/card/examples "https://v10.material.angular.io/components/card/examples")

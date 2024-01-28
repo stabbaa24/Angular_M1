@@ -372,9 +372,6 @@ export class AssignmentsComponent implements OnInit {
     });
   }
 
-
-
-
   onFirstPage() {
     if (this.page > 1) {
       this.page = 1;
