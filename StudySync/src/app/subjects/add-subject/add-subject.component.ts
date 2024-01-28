@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SubjectsService } from '../../shared/subjects.service';
 import { TeachersService } from '../../shared/teachers.service';
 import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-subject',
@@ -22,6 +23,8 @@ export class AddSubjectComponent {
   imgFolder = 'assets/uploads/';
 
   constructor(
+    private dialogRef: MatDialogRef<AddSubjectComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private router: Router,
     private subjectService: SubjectsService,
     private teacherService: TeachersService
@@ -68,6 +71,8 @@ export class AddSubjectComponent {
     } else {
       addSubject('');
     }
+
+    this.dialogRef.close();
   }
 
   //https://blog.angular-university.io/angular-file-upload/

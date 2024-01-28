@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { SubjectsService } from '../shared/subjects.service';
 import { Subject } from './subject.model';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
 
 @Component({
   selector: 'app-subjects',
@@ -14,7 +16,8 @@ export class SubjectsComponent {
   getUploadedImage = "../../../";
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   
-  constructor(private subjectsService: SubjectsService) { }
+  constructor(private subjectsService: SubjectsService,
+    private dialog: MatDialog,) { }
 
    //Gérer la pagination
    page: number = 1;
@@ -58,6 +61,19 @@ export class SubjectsComponent {
       }
       );
   }
+
+  openAddSubjectDialog(): void {
+    const dialogRef = this.dialog.open(AddSubjectComponent, {
+      width: '400px'
+      //,      data: { subjectId: subject.id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Fenêtre modale fermée');
+      this.loadPageData();
+    });
+  }
+
 
   onFirstPage() {
     if (this.page > 1) {

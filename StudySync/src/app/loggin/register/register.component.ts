@@ -25,6 +25,7 @@ export class RegisterComponent {
   isRegisterFailed = false;
   getErrorRegister = 'Nom d\'utilisateur ou mot de passe incorrect.';
   file: File | null = null;
+  files: File[] = [];
   imgFolder = 'assets/uploads/';
 
   constructor(
@@ -76,8 +77,13 @@ export class RegisterComponent {
         idUser: ''
       };
 
+      console.log("username : " + username);
+      console.log("password : " + password);
+      console.log("role : " + role);
+
       this.authService.register(username, password, role).subscribe({
         next: (getUser) => {
+          console.log("getUser : " + getUser);
           data.idUser = getUser.id;
           const registerObservable = role === 'user' ? this.studentService.addStudent(data) : this.teacherService.addTeacher(data);
 

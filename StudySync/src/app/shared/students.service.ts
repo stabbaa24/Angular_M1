@@ -12,8 +12,7 @@ export class StudentsService {
     constructor(private loggingService: LoggingService,
         private http: HttpClient) { }
 
-   
-    url = `${environment.apiURL}/students`;
+     url = `${environment.apiURL}/students`;
 
     getStudents(): Observable<any> {
         return this.http.get<any>(this.url);

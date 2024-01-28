@@ -13,6 +13,7 @@ export class UsersService {
         private http: HttpClient) { }
 
     url = `${environment.apiURL}/users`;
+    
     registerUser(users: { login: string, password: string, role: string }): Observable<any> {
         return this.http.post<any>(this.url + '/register', users);
     }
