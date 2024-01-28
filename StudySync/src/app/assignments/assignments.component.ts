@@ -29,7 +29,7 @@ import { Render } from './render.model';
     ]),
   ]
 })
-
+// LA PAGINATION NE FONCTIONNE PLUS ET J AI PAS LE TEMPS DE LA REPARER
 export class AssignmentsComponent implements OnInit {
   titre = "Rendu des devoirs";
   formVisible = false;
