@@ -28,6 +28,14 @@ export class AppComponent {
     this.router.navigate(["/home"]);
   }
 
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
+  getInterface(): string {
+    return this.isAdmin() ? "admin-color" : "user-color";
+  }
+
   /*onPeuplerBD() {
     this.assignmentsService.peuplerBD();
   }*/

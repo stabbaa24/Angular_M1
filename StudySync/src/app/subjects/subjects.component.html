@@ -1,6 +1,8 @@
+<h1>Liste des matières</h1>
+
 <main class="container">
   <div class="ajouterBtnDiv">
-    <button mat-flat-button color="accent" class="ajouterBtn" (click)="openAddSubjectDialog()">
+    <button mat-flat-button color="accent" class="ajouterBtn" (click)="openAddSubjectDialog()" *ngIf="isAdmin()">
       Ajouter Matière
     </button>
   </div>
