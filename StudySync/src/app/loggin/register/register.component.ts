@@ -4,8 +4,6 @@ import { AuthService } from 'src/app/shared/auth.service';
 import { Router } from '@angular/router';
 import { StudentsService } from 'src/app/shared/students.service';
 import { TeachersService } from 'src/app/shared/teachers.service';
-import { ImageService } from 'src/app/shared/image.service';
-import { Image } from '../image.model';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,6 +17,7 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
     firstname: new FormControl('', Validators.required),
+    image: new FormControl('', Validators.required),
     promo: new FormControl('', Validators.required),
     groupe: new FormControl('', Validators.required)
   });
@@ -28,30 +27,21 @@ export class RegisterComponent {
   file: File | null = null;
   files: File[] = [];
   imgFolder = 'assets/uploads/';
-  selectedType: string | null = null;
-  selectedImage: Image | null = null;
-
-  images: Image[] = [];
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private studentService: StudentsService,
-    private teacherService: TeachersService,
-    private imageService: ImageService
+    private teacherService: TeachersService
   ) { }
 
   ngOnInit(): void {
     console.log(this.registerForm);
     this.registerForm.get('role')?.valueChanges.subscribe((value) => {
       if (value === 'user') {
-        this.selectedType = 'student';
-      this.loadImages();
         this.getPromo?.setValidators([Validators.required]);
         this.getGroupe?.setValidators([Validators.required]);
       } else {
-        this.selectedType = 'teacher';
-        this.loadImages();
         this.getPromo?.clearValidators();
         this.getGroupe?.clearValidators();
       }
@@ -60,21 +50,9 @@ export class RegisterComponent {
     });
   }
 
-  selectImage(image: Image) {
-    this.selectedImage = image;
-  }
 
-  
-  loadImages() {
-    if (this.selectedType) {
-      this.imageService.getImages(this.selectedType).subscribe((data: Image[]) => {
-        this.images = data;
-      });
-    }
-  }
-
+  // Dans votre méthode onRegister, appelez simplement addUser
   onRegister() {
-    console.log("selectedType : " + this.selectedType);
     if (!this.registerForm.valid) {
       this.isRegisterFailed = true;
       this.getErrorRegister = 'Formulaire non valide.';
@@ -85,66 +63,49 @@ export class RegisterComponent {
     const username = this.getLastName?.value + '.' + this.getFirstName?.value;
     const password = this.getPassword?.value ?? '';
     const confirmPassword = this.getConfirmPassword?.value ?? '';
+
     if (password !== confirmPassword) {
       this.isRegisterFailed = true;
       this.getErrorRegister = 'Les mots de passe ne correspondent pas.';
       return;
     }
 
-    const addUser = (imagePath: string | undefined) => {
-      const data = {
-        nom: this.getLastName?.value,
-        prenom: this.getFirstName?.value,
-        image: imagePath,
-        promo: role === 'user' ? this.getPromo?.value : null,
-        groupe: role === 'user' ? this.getGroupe?.value : null,
-        idUser: ''
-      };
+    this.authService.register(username, password, role).subscribe({
+      next: (getUser) => {
+        const data = {
+          nom: this.getLastName?.value,
+          prenom: this.getFirstName?.value,
+          image: '', // Chaîne vide pour l'image
+          promo: role === 'user' ? this.getPromo?.value : null,
+          groupe: role === 'user' ? this.getGroupe?.value : null,
+          idUser: getUser.id
+        };
 
-      console.log("username : " + username);
-      console.log("password : " + password);
-      console.log("role : " + role);
+        const registerObservable = role === 'user' ? this.studentService.addStudent(data) : this.teacherService.addTeacher(data);
 
-      this.authService.register(username, password, role).subscribe({
-        next: (getUser) => {
-          console.log("getUser : " + getUser);
-          data.idUser = getUser.id;
-          const registerObservable = role === 'user' ? this.studentService.addStudent(data) : this.teacherService.addTeacher(data);
-
-          registerObservable.subscribe({
-            next: () => this.router.navigate(['/loggin']),
-            error: (error) => {
-              console.error('Erreur lors de l\'inscription : ', error);
-              this.isRegisterFailed = true;
-            }
-          });
-        },
-        error: (error) => {
-          console.error('Erreur lors de l\'inscription : ', error);
-          this.isRegisterFailed = true;
-        }
-      });
-    };
-
-    /*if (this.file) {
-      const upload = role === 'user' ? this.studentService.uploadImage(this.file) : this.teacherService.uploadImage(this.file);
-
-      upload.subscribe({
-        next: (getImg) => {
-          addUser(this.imgFolder + getImg.fileName);
-        },
-        error: (error) => {
-          console.error('Erreur lors de l\'upload de l\'image : ', error);
-          this.isRegisterFailed = true;
-        }
-      });
-    } else {
-      addUser('');
-    }*/
+        registerObservable.subscribe({
+          next: () => this.router.navigate(['/loggin']),
+          error: (error) => {
+            console.error('Erreur lors de l\'inscription : ', error);
+            this.isRegisterFailed = true;
+            this.getErrorRegister = 'Erreur lors de l\'inscription.';
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Erreur lors de l\'inscription utilisateur : ', error);
+        this.isRegisterFailed = true;
+      }
+    });
   }
 
   //https://blog.angular-university.io/angular-file-upload/
- 
+  onFileSelected(event: any) {
+    this.file = event.target.files[0];
+    if (this.file) {
+      this.getImage?.setValue(this.file.name);
+    }
+  }
 
   get getPassword() { return this.registerForm.get('password'); }
   get getConfirmPassword() { return this.registerForm.get('confirmPassword'); }
