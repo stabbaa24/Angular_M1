@@ -14,9 +14,7 @@ let subject = require('./routes/subjects');
 let render = require('./routes/rendered');
 let verifyToken = require('./routes/verifyToken');
 let cors = require('cors');
-const uploadImg = require('./routes/uploads'); 
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' }) 
+const multer  = require('multer');
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -86,9 +84,10 @@ app.get('/api/images/:type', (req, res) => {
   const directoryPath = path.join(__dirname, `assets/image/${type}`);
 
   fs.readdir(directoryPath, function (err, files) {
-      if (err) {
-          res.status(500).send({ message: "Unable to scan files!" });
-      } 
+    if (err) {
+        console.error(err);
+        return res.status(500).send({ error: "Error scanning files", details: err.message });
+    }
       else {
           let fileInfos = files.map(file => {
               return {
@@ -132,7 +131,6 @@ app.route(prefix + '/users/register')
 app.route(prefix + '/students')
   .get(/*verifyToken,*/ student.getStudents)
   .post(student.addStudent);
-  //.post(upload.single('image'),student.addStudent);
 
 // Routes Teachers
 app.route(prefix + '/teachers')
@@ -151,19 +149,6 @@ app.route(prefix + '/subjects')
 app.route(prefix + '/subjects/:id')
   .get(/*verifyToken, */subject.getSubject)
   //.delete(verifyToken, subject.deleteSubject);
-
-// Routes Uploads
-app.post(prefix + '/students/uploads', uploadImg, (req, res) => {
-  res.json({ imagePath: res.locals.imagePath });
-});
-
-app.post(prefix + '/teachers/uploads', uploadImg, (req, res) => {
-  res.json({ imagePath: res.locals.imagePath });
-});
-
-app.post(prefix + '/subjects/uploads', uploadImg, (req, res) => {
-  res.json({ imagePath: res.locals.imagePath });
-});
 
 // Routes Rendered
 app.route(prefix + '/rendered/:assignmentId/:student')
