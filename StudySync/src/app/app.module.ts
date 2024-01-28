@@ -55,7 +55,7 @@ import { AssignmentsRenderedComponent } from './assignments/assignments-rendered
 
 const routes: Routes = [
   //{ path: 'load', component: LoadComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: FormLogginComponent },
   //{ path: '', component: AssignmentsComponent }, // path vide = page d'accueil
   { path: 'home', component: AssignmentsComponent },
   { path: 'add', component: AddAssignmentComponent },
