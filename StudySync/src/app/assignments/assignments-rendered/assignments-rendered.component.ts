@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AssignmentsRenderedComponent {
   errorImg = "../../assets/img/error.png";
   retry() {
-    window.location.reload();
+    
   }
 }
