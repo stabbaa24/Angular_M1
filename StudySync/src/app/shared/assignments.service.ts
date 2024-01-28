@@ -46,20 +46,50 @@ export class AssignmentsService {
     return this.http.delete(deleteURI);
   }
 
-  /*peuplerBD() {
+ /* peuplerBD() {
     bdInitialAssignments.forEach(a => {
       let nouvelAssignment = new Assignment();
       nouvelAssignment.nom = a.nom;
       nouvelAssignment.id = a.id;
       nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
-      nouvelAssignment.rendu = a.rendu;
+      //nouvelAssignment.rendu = a.rendu;
 
       this.addAssignment(nouvelAssignment)
         .subscribe(reponse => {
           console.log(reponse.message);
         })
     })
-  }*/
+  }
+*/
+
+peuplerBD() {
+  bdInitialAssignments.forEach(a => {
+    let nouvelAssignment = new Assignment();
+    nouvelAssignment.id = a.id;
+    nouvelAssignment.nom = a.nom;
+    nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
+    nouvelAssignment.rendu = a.rendu;
+    nouvelAssignment.auteur = a.auteur; 
+    nouvelAssignment.matiere = a.matiere; 
+
+    if (['TD 1', 'TD 2', 'TD 3'].includes(a.groupe)) {
+      nouvelAssignment.groupe = a.groupe as 'TD 1' | 'TD 2' | 'TD 3';
+    } else {
+      throw new Error(`Valeur invalide pour groupe: ${a.groupe}`);
+    }
+
+    if (['L3', 'M1', 'M2'].includes(a.promo)) {
+      nouvelAssignment.promo = a.promo as 'L3' | 'M1' | 'M2';
+    } else {
+      throw new Error(`Valeur invalide pour promo: ${a.promo}`);
+    }
+
+    this.addAssignment(nouvelAssignment)
+      .subscribe(reponse => {
+        console.log(reponse.message);
+      });
+  });
+}
 
   getAssignmentsPagine(page: number, limit: number): Observable<any> {
     return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit);

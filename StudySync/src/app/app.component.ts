@@ -36,7 +36,7 @@ export class AppComponent {
     return this.isAdmin() ? "admin-color" : "user-color";
   }
 
-  /*onPeuplerBD() {
+  onPeuplerBD() {
     this.assignmentsService.peuplerBD();
-  }*/
+  }
 }

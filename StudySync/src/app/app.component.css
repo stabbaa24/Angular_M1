@@ -1,6 +1,5 @@
 * {
     text-decoration: none;
-    /* Supprime le soulignement des liens */
 }
 
 .example-spacer {
@@ -13,10 +12,14 @@
 
 .admin-color {
     background-color: #2682be;
+    color: white;
+    padding: 10px 0;
 }
 
 .user-color {
     background-color: rgb(30, 149, 149);
+    color: white;
+    padding: 10px 0;
 }
 
 a {
@@ -34,3 +37,69 @@ a:visited {
 .home {
     color: white;
 }
+
+  
+  .mat-toolbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  .mat-icon-button, .mat-raised-button {
+    color: white;
+    margin: 0 5px;
+  }
+  
+  .mat-icon {
+    font-size: 24px;
+  }
+  
+  span {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .my-sidenav .mat-drawer {
+    width: 250px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  .mat-nav-list a {
+    color: #2682be;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .mat-nav-list a.active-link {
+    font-weight: bold;
+  }
+  
+  .mat-nav-list a:hover {
+    background-color: #ddd;
+  }
+  
+  button.mat-raised-button {
+    background-color: #f0f0f0;
+    color: #2682be;
+    margin: 10px;
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+
+  .white-icon {
+    color: white;
+  }
+  

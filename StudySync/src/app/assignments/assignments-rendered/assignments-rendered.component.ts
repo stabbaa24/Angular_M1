@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./assignments-rendered.component.css']
 })
 export class AssignmentsRenderedComponent {
-  errorImg = "../../assets/img/logo.png";
+  errorImg = "../../assets/img/error.png";
   retry() {
     window.location.reload();
   }
