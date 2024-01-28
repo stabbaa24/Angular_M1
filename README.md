@@ -11,6 +11,10 @@ Cela va permettre aux étudiants de voir les devoirs qu'ils ont à faire et à r
 
 https://studysync-b7j1.onrender.com
 
+## Lien d'accès à la vidéo
+
+https://www.youtube.com/watch?v=wWVtmTFiDr4
+
 ## Contributeur
 
 * SAVE Pierre
@@ -18,12 +22,11 @@ https://studysync-b7j1.onrender.com
 
 ## Répartition du travail
 
-* SAVE Pierre : 10%
-  * A dit bonjour
-* TABBAA Siham : 90%
-  * API : 100%
-  * Back-End : 100%
-  * Front-end : 100%
+* SAVE Pierre : 40%
+  * Front-End
+* TABBAA Siham : 60%
+  * API
+  * Back-End
 
 ## Interface
 
