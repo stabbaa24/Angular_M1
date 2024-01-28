@@ -102,7 +102,7 @@ export class RegisterComponent {
       });
     };
 
-    if (this.file) {
+    /*if (this.file) {
       const upload = role === 'user' ? this.studentService.uploadImage(this.file) : this.teacherService.uploadImage(this.file);
 
       upload.subscribe({
@@ -116,7 +116,7 @@ export class RegisterComponent {
       });
     } else {
       addUser('');
-    }
+    }*/
   }
 
   //https://blog.angular-university.io/angular-file-upload/

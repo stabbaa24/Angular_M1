@@ -21,7 +21,7 @@ function addStudent(req, res) {
     student.user = req.body.user;
     student.nom = req.body.nom;
     student.prenom = req.body.prenom;
-    student.image = req.body.image;
+   // student.image = req.body.image;
     student.groupe = req.body.groupe;
     student.promo = req.body.promo;
     student.image = req.body.image;
